@@ -17,8 +17,7 @@ defmodule LivesocketsWeb.Router do
   scope "/", LivesocketsWeb do
     pipe_through :browser
 
-    live "/", MainLive
-    live "/first", PageLive
+    live "/", PageLive
     live "/second", SecondLive
   end
 

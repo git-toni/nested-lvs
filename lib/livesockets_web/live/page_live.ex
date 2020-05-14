@@ -4,7 +4,7 @@ defmodule LivesocketsWeb.PageLive do
   @impl true
   def mount(_params, _session, socket) do
     IO.puts("-----------------")
-    IO.puts("pageLive mount")
+    IO.puts("PageLive mount")
     IO.inspect(socket.assigns)
     IO.inspect(self())
     IO.puts("-----------------")
@@ -12,12 +12,16 @@ defmodule LivesocketsWeb.PageLive do
   end
 
   def render(assigns) do
+    IO.puts("pagelive render ")
+    IO.inspect(assigns)
+    IO.inspect(self())
+
     ~L"""
     <section class="phx-hero">
-      <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-      <p>Peace-of-mind from prototype to production</p>
+      <h1>...</h1>
+      <p>____</p>
 
-      <%= live_patch "SecondPage", to: Routes.live_path(@socket, LivesocketsWeb.SecondLive) %>
+      <%= live_redirect "SecondPage", to: Routes.live_path(@socket, LivesocketsWeb.SecondLive) %>
     </section>
     """
   end
